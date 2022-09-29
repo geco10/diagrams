@@ -1,11 +1,11 @@
 #include <iostream>
 #include<SFML/Graphics.hpp>
-
+#include"x_axis.h"
 int main(){
-        sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-        sf::CircleShape shape(100.f);
-        shape.setFillColor(sf::Color::Green);
-
+        sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
+        x_axis xa;
+        xa.setLegnth(60);
+        xa.setLoc(40,40);
         while (window.isOpen())
         {
             sf::Event event;
@@ -14,9 +14,8 @@ int main(){
                 if (event.type == sf::Event::Closed)
                     window.close();
             }
-
-            window.clear();
-            window.draw(shape);
+            window.clear(sf::Color(225,225,225));
+            window.draw(xa);
             window.display();
         }
 
