@@ -13,13 +13,6 @@ public:
 	void setLegnth(int a);
 	void draw(sf::RenderTarget& target, sf::RenderStates states)const override;
 private:
-	int fMin() {
-		const std::vector<double>& arr=*data;
-		int min=arr[0];
-		for (int i = 1; i < arr.size(); i++) {
-			if (min > arr[i])min = arr[i];
-		}
-		return min;
-	}
+	double fMin()const;
+	double fMax()const;
 };
-

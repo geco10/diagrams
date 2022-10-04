@@ -3,8 +3,9 @@
 #include"x_axis.h"
 int main(){
         sf::RenderWindow window(sf::VideoMode(800, 800), "SFML works!");
-        x_axis xa;
-        xa.setLegnth(60);
+        std::vector<double> arr={10,8,-4,2,-7,-1,30};
+        x_axis xa(&arr);
+        xa.setLegnth(600);
         xa.setLoc(40,40);
         while (window.isOpen())
         {
