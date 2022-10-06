@@ -6,6 +6,16 @@ void x_axis::draw(sf::RenderTarget& target, sf::RenderStates states)const {
 	line1.setPosition(loc);
 	line1.setFillColor(sf::Color(0, 0, 0));
 	target.draw(line1);
+	sf::RectangleShape line2(sf::Vector2f(40,4));
+	line2.setRotation(150);
+	line2.setFillColor(sf::Color::Black);
+	line2.setPosition(length + loc.x, loc.y+4);
+	target.draw(line2);
+	sf::RectangleShape line3(sf::Vector2f(40, 4));
+	line3.setRotation(210);
+	line3.setFillColor(sf::Color::Black);
+	line3.setPosition(length + loc.x, loc.y + 4);
+	target.draw(line3);
 	double start = loc.x + 0.025 * length;
 	double finish =start + length * 0.95;
 	double k = (0.95 * length) / (fMax()-fMin());
