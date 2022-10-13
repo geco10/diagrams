@@ -21,9 +21,15 @@
     <ClCompile Include="x_axis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BarChart.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="x_axis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BarChart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

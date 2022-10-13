@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BarChart.cpp" />
     <ClCompile Include="diagrams.cpp" />
     <ClCompile Include="x_axis.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BarChart.h" />
     <ClInclude Include="x_axis.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
