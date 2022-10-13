@@ -8,5 +8,9 @@ class BarChart{
 public:
 	BarChart(const std::vector<double>* arr);
 	void draw(sf::RenderTarget& target, sf::RenderStates states);
+private:
+	int mRet();
+	double fStep(double min,double max);
+	void makeBars(const std::vector<double>* arr);
 };
 
