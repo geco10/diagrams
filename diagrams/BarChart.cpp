@@ -8,7 +8,7 @@ void BarChart::draw(sf::RenderTarget& target, sf::RenderStates states)
 {
 	for (int i = 0; i < bars.size(); ++i) {
 		sf::RectangleShape bar(bars[i].first, bars[i].second);
-		
+		   
 	}
 }
 
