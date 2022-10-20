@@ -1,5 +1,5 @@
 #include "BarChart.h"
-
+#include<cmath>
 void BarChart::setSize(float x, float y)
 {
 	size.x = x;
@@ -46,9 +46,9 @@ void BarChart::draw(sf::RenderTarget& target, sf::RenderStates states)const
 	}
 }
 
-int BarChart::mRet()
+int BarChart::mRet(int n)
 {
-	return 13;
+	return 1+3.3221*log(n);
 }
 void BarChart::countSetings(int x, int y) {
 	size.x = x * 0.8;
@@ -57,23 +57,21 @@ void BarChart::countSetings(int x, int y) {
 	loc.x = x * 0.1;
 }
 
-double BarChart::fStep(double min,double max){
+double BarChart::fStep(double min,double max,int n){
 	double range = max - min;
-	return range / mRet();
+	return range / mRet(n);
 }
 
 void BarChart::makeBars(const std::vector<double>* arr){
-	int curr=0;
-	double step = fStep((* arr)[0], (* arr)[arr->size()]);
-	for (int i = 0; i < mRet(); i++) {
+	int curr = 0;
+	double step = fStep((*arr)[0],(*arr)[arr->size()-1],(arr->size());
+	for (int i = 0; i < mRet(arr->size()); ++i) {
 		double l = (*arr)[0] + step * i;
 		double r = l + step;
-		int j;
-		for (j = curr; (*arr)[j] < r; ++j, ++curr);
-		std::pair<double, int> data;
-		data.first = l+step/2;
-		data.second = j - curr;
-		curr = j;
+		int t = 0;
+		for (; r > (*arr)[curr];++curr)++t;
+		std::pair <double, int> a={l+step/2,t};
+		bars.push_back(a);
 	}
 }
 
