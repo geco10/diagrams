@@ -15,9 +15,9 @@ public:
 	BarChart(const std::vector<double>* arr);
 	void draw(sf::RenderTarget& target, sf::RenderStates states)const override;
 private:
-	int mRet();
+	int mRet(int n);
 	void countSetings(int x, int y);//false-custom setting
-	double fStep(double min,double max);
+	double fStep(double min,double max,int n);
 	void makeBars(const std::vector<double>* arr);
 	int maxBar()const;
 };
