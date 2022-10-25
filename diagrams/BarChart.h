@@ -13,6 +13,7 @@ public:
 	void setSize(float x, float y);
 	void setBarsColor(int r, int g, int b, int a = 255);
 	BarChart(const std::vector<double>* arr);
+	BarChart(const char* path);
 	void draw(sf::RenderTarget& target, sf::RenderStates states)const override;
 private:
 	int mRet(int n);

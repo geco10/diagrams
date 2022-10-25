@@ -1,4 +1,5 @@
 #include "BarChart.h"
+#include"DownloadFromFile.h"
 #include<cmath>
 void BarChart::setSize(float x, float y)
 {
@@ -13,6 +14,11 @@ void BarChart::setBarsColor(int r, int g, int b, int a) {
 }
 BarChart::BarChart(const std::vector<double>* arr){
 	makeBars(arr);
+	barsColor = sf::Color::Blue;
+}
+BarChart::BarChart(const char* path) {
+	std::vector<double> a=vectorFromFile(path);
+	makeBars(&a);
 	barsColor = sf::Color::Blue;
 }
 void BarChart::draw(sf::RenderTarget& target, sf::RenderStates states)const
