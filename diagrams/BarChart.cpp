@@ -15,52 +15,54 @@ BarChart::BarChart(const std::vector<double>* arr){
 	makeBars(arr);
 	barsColor = sf::Color::Blue;
 }
-void BarChart::drawInNewindow(int x, int y, bool sets) {
-	if (sets) {
-		countSetings(x, y);
-	}
-	sf::RenderWindow window(sf::VideoMode(x, y), "SFML works!");
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-		window.clear(sf::Color(225, 225, 225));
-		window.draw(*this);
-		window.display();
-	}
-}
 void BarChart::draw(sf::RenderTarget& target, sf::RenderStates states)const
 {
-	double k = (size.y*0.9)/maxBar();
+	double k = (size.y * 0.9) / maxBar();
 	float width = (size.x * 0.9) / bars.size();
-	sf::RectangleShape line1(sf::Vector2f(width*(bars.size()+1), 4));
-	line1.setPosition(loc);
-	line1.setFillColor(sf::Color(0, 0, 0));
-	target.draw(line1);
-	sf::RectangleShape line2(sf::Vector2f(40, 4));
-	line2.setRotation(150);
-	line2.setFillColor(sf::Color::Black);
-	line2.setPosition(width * (bars.size() + 1) + loc.x, loc.y + 4);
-	target.draw(line2);
-	sf::RectangleShape line3(sf::Vector2f(40, 4));
-	line3.setRotation(210);
-	line3.setFillColor(sf::Color::Black);
-	line3.setPosition(width * (bars.size() + 1) + loc.x, loc.y + 4);
-	target.draw(line3);
 	for (int i = 0; i < bars.size(); ++i) {
-		sf::RectangleShape bar(sf::Vector2f(width, bars[i].second*k));
+		sf::RectangleShape bar(sf::Vector2f(width, bars[i].second * k));
 		bar.setFillColor(barsColor);
-		bar.setOutlineColor(sf::Color(255-barsColor.r, 255 - barsColor.g,255 - barsColor.b,barsColor.a));
+		bar.setOutlineColor(sf::Color(255 - barsColor.r, 255 - barsColor.g, 255 - barsColor.b, barsColor.a));
 		bar.setOutlineThickness(2);
 		int x = bar.getSize().x;
 		int y = bar.getSize().y;
-		bar.setPosition(x * i + loc.x, loc.y+size.y-y);
+		bar.setPosition((bar.getOutlineThickness()+x) * i + loc.x, loc.y + size.y - y);
 		target.draw(bar);
 	}
+	{// x-axis
+		sf::RectangleShape line1(sf::Vector2f(size.x, 4));
+		line1.setPosition(loc.x, loc.y + size.y);
+		line1.setFillColor(sf::Color::Black);
+		target.draw(line1);
+		sf::RectangleShape line2(sf::Vector2f(40, 4));
+		line2.setRotation(150);
+		line2.setFillColor(sf::Color::Black);
+		line2.setPosition(size.x + loc.x, loc.y + 4 + size.y);
+		target.draw(line2);
+		sf::RectangleShape line3(sf::Vector2f(40, 4));
+		line3.setRotation(210);
+		line3.setFillColor(sf::Color::Black);
+		line3.setPosition(size.x + loc.x, loc.y + 4 + size.y);
+		target.draw(line3);
+    }
+
+	{//y-axis
+		sf::RectangleShape line1(sf::Vector2f(4, size.y+4));
+		line1.setPosition(loc);
+		line1.setFillColor(sf::Color::Black);
+		target.draw(line1);
+		sf::RectangleShape line2(sf::Vector2f(40, 4));
+		line2.setRotation(60);
+		line2.setFillColor(sf::Color::Black);
+		line2.setPosition( loc.x+4, loc.y +4);
+		target.draw(line2);
+		sf::RectangleShape line3(sf::Vector2f(40, 4));
+		line3.setRotation(120);
+		line3.setFillColor(sf::Color::Black);
+		line3.setPosition( loc.x+3, loc.y + 4);
+		target.draw(line3);
+    }
+	
 }
 
 int BarChart::mRet(int n)
