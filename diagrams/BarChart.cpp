@@ -1,3 +1,4 @@
+#include<algorithm>
 #include "BarChart.h"
 #include"DownloadFromFile.h"
 #include<cmath>
@@ -18,6 +19,7 @@ BarChart::BarChart(const std::vector<double>* arr){
 }
 BarChart::BarChart(const char* path) {
 	std::vector<double> a=vectorFromFile(path);
+	std::sort(a.begin(),a.end());
 	makeBars(&a);
 	barsColor = sf::Color::Blue;
 }
