@@ -131,14 +131,14 @@
     <ClCompile Include="diagrams.cpp" />
     <ClCompile Include="DownloadFromFile.cpp" />
     <ClCompile Include="DrawableInNewWindow.cpp" />
-    <ClCompile Include="f_x_.cpp" />
+    <ClCompile Include="f_x.cpp" />
     <ClCompile Include="x_axis.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BarChart.h" />
     <ClInclude Include="DownloadFromFile.h" />
     <ClInclude Include="DrawableInNewWindow.h" />
-    <ClInclude Include="f_x_.h" />
+    <ClInclude Include="f_x.h" />
     <ClInclude Include="x_axis.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,10 @@
 #include <iostream>
 #include"BarChart.h"
 #include"x_axis.h"
+#include"f_x.h"
 int main(){
 	std::vector<double> arr={4,9,11,15,19,30};
-	BarChart bar("all_values.txt");
-	bar.drawInNewWindow(800, 800);
+	f_x f(0.0,10.0);
+	f.drawInNewWindow(800, 800);
    return 0;
 }

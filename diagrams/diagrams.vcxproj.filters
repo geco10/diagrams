@@ -30,7 +30,7 @@
     <ClCompile Include="DownloadFromFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="f_x_.cpp">
+    <ClCompile Include="f_x.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,7 +47,7 @@
     <ClInclude Include="DownloadFromFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="f_x_.h">
+    <ClInclude Include="f_x.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
