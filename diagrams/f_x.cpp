@@ -19,13 +19,13 @@ f_x::f_x(double n, double m) {
 }
 void f_x::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    double t = b-a;
-    double t1 = size.y * 0.95;
-    double step = t / t1;
-    std::vector <double>y;
-    for (double x = a; x <= b; x+=step){
-        y.push_back(calc(x));
+    double step = (b - a) / size.x;
+    std::vector<double> data;
+    for (double x = a; x < b; x+=step){
+        data.push_back(calc(x));
     }
+    data.push_back(calc(b));
+
 }
 void f_x::setLoc(double x, double y) {
     loc.x = x;
