@@ -25,6 +25,26 @@ void f_x::draw(sf::RenderTarget& target, sf::RenderStates states) const
         data.push_back(calc(x));
     }
     data.push_back(calc(b));
+    double ymax=data[0], ymin=data[0];
+    for (double i :  data)
+    {
+        if (i > ymax)ymax = i;
+        else
+            if (i < ymin)ymin = i;
+    }
+    double stepy = (size.y) / (ymax - ymin);
+    for (int i = 0; i < data.size(); i++)
+    {
+        sf::Vector2f location;
+        location.x = loc.x + i;
+        location.y= loc.y + size.y - ((data[i]-ymin) * stepy);
+
+        sf::CircleShape point(2);
+        point.setFillColor(sf::Color::Blue);
+        point.setPosition(location);
+        target.draw(point);
+    }
+
 
 }
 void f_x::setLoc(double x, double y) {
