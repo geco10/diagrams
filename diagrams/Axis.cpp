@@ -1,11 +1,36 @@
 #include "Axis.h"
+#include <sstream>
+#include <iomanip>
+sf::Text Axis::retText(double a)const
+{
+    std::ostringstream out;
+    out<<std::setprecision(2) << a; // Set precision to 2
+    std::string str = out.str();
+    sf::Text text(str, font, 20u);
+    text.setFillColor(col);
+    return text;
+}
+
+void Axis::setXconfig(double a, double b, double c)
+{
+    ax = a;
+    numcx = c;
+    bx = b;
+}
+
+void Axis::setYconfig(double a, double b, double c)
+{
+    numcy = c;
+    ay = a;
+    by = b;
+}
 
 Axis::Axis(sf::Vector2f loc, sf::Vector2f size,sf::Color c)
 {
 	this->loc = loc;
 	this->size = size;
     col = c;
-
+    font.loadFromFile("EuropeanTypewriter.ttf");
 }
 
 void Axis::draw(sf::RenderTarget& target, sf::RenderStates states) const
@@ -25,6 +50,16 @@ void Axis::draw(sf::RenderTarget& target, sf::RenderStates states) const
         line3.setFillColor(col);
         line3.setPosition(size.x + loc.x, loc.y + 4 + size.y);
         target.draw(line3);
+        double s = size.x / numcx;
+        for (int i = 0; i < numcx; i++){
+            sf::RectangleShape line4(sf::Vector2f(3, 12));
+            line4.setFillColor(col);
+            line4.setPosition(s*i+loc.x, loc.y-4+size.y);
+            target.draw(line4);
+            sf::Text text = retText(4.6);
+            text.setPosition(sf::Vector2f(s * i + loc.x-8, loc.y +14 + size.y));
+            target.draw(text);
+        }
     }
 
     {//y-axis
@@ -42,5 +77,30 @@ void Axis::draw(sf::RenderTarget& target, sf::RenderStates states) const
         line3.setFillColor(col);
         line3.setPosition(loc.x + 3, loc.y + 4);
         target.draw(line3);
+      
+        double s = size.y / numcy;
+        for (int i = 0; i < numcy; i++) {
+            sf::RectangleShape line5(sf::Vector2f(12, 3));
+            line5.setFillColor(col);
+            line5.setPosition( loc.x - 4,  (loc.y+size.y)-s * i);
+            target.draw(line5);
+        }
     }
+
+
+
+
+
+
+
+
+
+
+
+   /* sf::Font font;
+    font.loadFromFile("EuropeanTypewriter.ttf");
+    sf::Text text("grdffgj", font, 20u);
+    text.setFillColor(sf::Color(0, 0, 0));
+    text.setPosition(sf::Vector2f(300,300));
+    target.draw(text);*/
 }

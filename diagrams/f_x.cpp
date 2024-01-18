@@ -48,7 +48,9 @@ void f_x::draw(sf::RenderTarget& target, sf::RenderStates states) const
         target.draw(point);
     }
     Axis ax(loc, size, sf::Color::Black);
-    ax.draw(target,states);
+    ax.setXconfig(a, b, int(size.x/50));
+    ax.setYconfig(ymin,ymax,int(size.y / 50));
+    target.draw(ax);
 }
 void f_x::setSize(double x, double y) {
     size.x = x;
