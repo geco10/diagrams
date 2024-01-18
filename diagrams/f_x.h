@@ -2,6 +2,7 @@
 #include"DrawableInNewWindow.h"
 #include<SFML/Graphics.hpp>
 #include<functional>
+#include"Axis.h"
 class f_x :public DrawableInNewWindow{
 	double a, b;
 	std::function<double(double)> calc;

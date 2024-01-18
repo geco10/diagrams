@@ -47,45 +47,8 @@ void f_x::draw(sf::RenderTarget& target, sf::RenderStates states) const
         point.setPosition(location);
         target.draw(point);
     }
-
-    {// x-axis
-        sf::RectangleShape line1(sf::Vector2f(size.x, 4));
-        line1.setPosition(loc.x, loc.y + size.y);
-        line1.setFillColor(sf::Color::Black);
-        target.draw(line1);
-        sf::RectangleShape line2(sf::Vector2f(40, 4));
-        line2.setRotation(150);
-        line2.setFillColor(sf::Color::Black);
-        line2.setPosition(size.x + loc.x , loc.y + 4 + size.y);
-        target.draw(line2);
-        sf::RectangleShape line3(sf::Vector2f(40, 4));
-        line3.setRotation(210);
-        line3.setFillColor(sf::Color::Black);
-        line3.setPosition(size.x + loc.x, loc.y + 4 + size.y);
-        target.draw(line3);
-    }
-
-    {//y-axis
-        sf::RectangleShape line1(sf::Vector2f(4, 4 + size.y));
-        line1.setPosition(loc.x,loc.y);
-        line1.setFillColor(sf::Color::Black);
-        target.draw(line1);
-        sf::RectangleShape line2(sf::Vector2f(40, 4));
-        line2.setRotation(60);
-        line2.setFillColor(sf::Color::Black);
-        line2.setPosition(loc.x + 4, loc.y + 4);
-        target.draw(line2);
-        sf::RectangleShape line3(sf::Vector2f(40, 4));
-        line3.setRotation(120);
-        line3.setFillColor(sf::Color::Black);
-        line3.setPosition(loc.x + 3, loc.y + 4);
-        target.draw(line3);
-    }
-
-}
-void f_x::setLoc(double x, double y) {
-    loc.x = x;
-    loc.y = y;
+    Axis ax(loc, size, sf::Color::Black);
+    ax.draw(target,states);
 }
 void f_x::setSize(double x, double y) {
     size.x = x;

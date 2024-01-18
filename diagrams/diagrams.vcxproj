@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Axis.cpp" />
     <ClCompile Include="BarChart.cpp" />
     <ClCompile Include="diagrams.cpp" />
     <ClCompile Include="DownloadFromFile.cpp" />
@@ -135,6 +136,7 @@
     <ClCompile Include="x_axis.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Axis.h" />
     <ClInclude Include="BarChart.h" />
     <ClInclude Include="DownloadFromFile.h" />
     <ClInclude Include="DrawableInNewWindow.h" />

@@ -33,6 +33,9 @@
     <ClCompile Include="f_x.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Axis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="x_axis.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="f_x.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Axis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
