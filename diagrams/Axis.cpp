@@ -51,12 +51,13 @@ void Axis::draw(sf::RenderTarget& target, sf::RenderStates states) const
         line3.setPosition(size.x + loc.x, loc.y + 4 + size.y);
         target.draw(line3);
         double s = size.x / numcx;
+        double step = (bx - ax) / (numcx-1);
         for (int i = 0; i < numcx; i++){
             sf::RectangleShape line4(sf::Vector2f(3, 12));
             line4.setFillColor(col);
             line4.setPosition(s*i+loc.x, loc.y-4+size.y);
             target.draw(line4);
-            sf::Text text = retText(4.6);
+            sf::Text text = retText(step*i+ax);
             text.setPosition(sf::Vector2f(s * i + loc.x-8, loc.y +14 + size.y));
             target.draw(text);
         }
@@ -77,13 +78,16 @@ void Axis::draw(sf::RenderTarget& target, sf::RenderStates states) const
         line3.setFillColor(col);
         line3.setPosition(loc.x + 3, loc.y + 4);
         target.draw(line3);
-      
+        double step = (by - ay) / (numcy-1);
         double s = size.y / numcy;
         for (int i = 0; i < numcy; i++) {
             sf::RectangleShape line5(sf::Vector2f(12, 3));
             line5.setFillColor(col);
             line5.setPosition( loc.x - 4,  (loc.y+size.y)-s * i);
             target.draw(line5);
+            sf::Text text = retText(step * i + ay);
+            text.setPosition(sf::Vector2f(loc.x-70, s*i+loc.y+41));
+            target.draw(text);
         }
     }
 
