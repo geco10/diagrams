@@ -35,17 +35,26 @@ void f_x::draw(sf::RenderTarget& target, sf::RenderStates states) const
         if (i < ymin)ymin = i;
     }
     double stepy = (size.y*0.9) / (ymax - ymin);
-    for (int i = 0; i < data.size(); i++)
+    for (int i = 0; i < data.size()-1; i++)
     {
         if (!numCheck(data[i])) continue;
         sf::Vector2f location;
         location.x = loc.x + i;
         location.y = loc.y + size.y - ((data[i] - ymin) * stepy);		sf::RectangleShape line1(sf::Vector2f(size.x, 4));
 
-        sf::CircleShape point(2);
+        /*sf::CircleShape point(2);
         point.setFillColor(sf::Color::Blue);
         point.setPosition(location);
-        target.draw(point);
+        target.draw(point);*/
+        LineWithWidth line;
+        line.setFillColor(sf::Color::Blue);
+        sf::Vector2f a;
+        a.x = loc.x + i + 1;
+        a.y = loc.y + size.y - ((data[i + 1] - ymin) * stepy);
+        line.setPoints(location, location+ sf::Vector2f(1,1));
+        line.setWidth(4.0);
+        target.draw(line);
+        
     }
     Axis ax(loc, size, sf::Color::Black);
     ax.setXconfig(a, b, int(size.x/50));

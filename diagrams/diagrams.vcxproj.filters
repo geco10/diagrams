@@ -36,6 +36,9 @@
     <ClCompile Include="Axis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LineWithWidth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="x_axis.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Axis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LineWithWidth.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,5 +1,6 @@
 #pragma once
 #include<SFML/Graphics.hpp>
+#include"LineWithWidth.h"
 class Axis : public sf::Drawable
 {
 	sf::Font font;
